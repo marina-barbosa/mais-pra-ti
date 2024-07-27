@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'BQN386';
+  src: url('./fonts/BQN386.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'APL333';
+  src: url('./fonts/APL333.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Apl2741';
+  src: url('./fonts/Apl2741.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MagdaMono';
+  src: url('./fonts/MagdaMono.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SFMono';
+  src: url('./fonts/sf-mono/SFMonoRegular.woff') format('truetype');
+}
+
+@font-face {
+  font-family: 'liberation mono';
+  src: url('./fonts/liberation_mono/LiberationMono-Regular.ttf') format('truetype');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
