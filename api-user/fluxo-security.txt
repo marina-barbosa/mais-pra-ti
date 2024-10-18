@@ -1,0 +1,156 @@
+INICIA SERVER:
+
+authenticationManager - INICIO
+authenticationManager - FIM
+
+securityFilterChain - INICIO
+securityFilterChain - FIM
+
+
+CRIA USUARIO:
+
+doFilterInternal - INICIO
+Auth Header: null
+doFilterInternal - FIRST IF - FIM
+
+
+LOGIN USER:
+
+doFilterInternal - INICIO
+Auth Header: null
+
+POST /auth/login - INICIO
+
+loadUserByUsername - INICIO
+loadUserByUsername - USER - FIM
+
+loadUserByUsername - INICIO
+loadUserByUsername - USER - FIM
+
+generateToken - EXE
+createToken - EXE
+getSigningKey - EXE
+
+POST /auth/login - FIM
+
+doFilterInternal - FIRST IF - FIM
+
+
+TENTATIVA DE ACESSO A ROTA PRIVADA COM TOKEN EXPIRADO:
+
+doFilterInternal - INICIO
+
+Auth Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3Mjg3NjI0ODQsImV4cCI6MTcyODg0ODg4NH0.kx7u60Kwx37yAejaYG2bWPXtobS9SPraiQ4M0z8wZYE
+
+JWT Token: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3Mjg3NjI0ODQsImV4cCI6MTcyODg0ODg4NH0.kx7u60Kwx37yAejaYG2bWPXtobS9SPraiQ4M0z8wZYE
+
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+ERROR 5608 --- 
+io.jsonwebtoken.ExpiredJwtException: JWT expired
+
+
+TENTATIVA DE ACESSO A ROTA PRIVADA COM TOKEN QUEBRADO:
+
+doFilterInternal - INICIO
+
+Auth Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNThotJettCJnRe8G47UWJITKpJsZsubB8
+
+JWT Token: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNThotJettCJnRe8G47_UWJITKpJsZsubB8
+
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+ERROR 5608 --- 
+io.jsonwebtoken.MalformedJwtException
+
+
+TENTATIVA DE ACESSO A ROTA PRIVADA SEM TOKEN:
+
+doFilterInternal - INICIO
+Auth Header: Bearer (vazio)
+doFilterInternal - FIRST IF - FIM
+
+TENTATIVA DE ACESSO A ROTA PRIVADA COM TOKEN VALIDO:
+
+doFilterInternal - INICIO
+
+Auth Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNTU0MDgsImV4cCI6MTcyOTI0MTgwOH0.VWDdMur5--7hotJettCJnRe8G47_UWJITKpJsZsubB8
+
+JWT Token: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNTU0MDgsImV4cCI6MTcyOTI0MTgwOH0.VWDdMur5--7hotJettCJnRe8G47_UWJITKpJsZsubB8
+
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+Username: hortency@exemplo.com
+
+authenticateUser - INICIO
+
+loadUserByUsername - INICIO
+loadUserByUsername - USER - FIM
+
+isTokenValid - EXE
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+isTokenExpired - EXE
+extractExpiration - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+Authorities: [ROLE_USER]
+
+authenticateUser - FIM
+
+doFilterInternal - SECOND IF - FIM
+
+
+TENTATIVA DE ACESSO A ROTA PRIVA COM TOKEN SEM AUTORIZAÇÃO:
+
+doFilterInternal - INICIO
+
+Auth Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNTU0MDgsImV4cCI6MTccyOTI0MTgwOH0.VWDdMur5--7hotJettCJnRe8G47_UWJITKpJsZsubB8
+
+JWT Token: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiaG9ydGVuY3lAZXhlbXBsby5jb20iLCJpYXQiOjE3MjkxNTU0MDgsImV4cCI6MTcyOTI0MTgwOH0.VWDdMur5--7hotJettCJnRe8G47_UWJITKpJsZsubB8
+
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+Username: hortency@exemplo.com
+
+authenticateUser - INICIO
+
+loadUserByUsername - INICIO
+loadUserByUsername - USER - FIM
+
+isTokenValid - EXE
+extractUsername - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+isTokenExpired - EXE
+extractExpiration - EXE
+extractClaim - EXE
+extractAllClaims - EXE
+getSigningKey - EXE
+
+Authorities: [ROLE_USER]
+
+authenticateUser - FIM
+
+doFilterInternal - SECOND IF - FIM
+
+
+
+
